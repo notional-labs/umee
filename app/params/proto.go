@@ -1,7 +1,7 @@
 package params
 
 import (
-	"github.com/cosmos/cosmos-sdk/simapp/params"
+	"cosmossdk.io/simapp/params"
 )
 
 // MakeEncodingConfig creates an EncodingConfig for Amino-based tests.

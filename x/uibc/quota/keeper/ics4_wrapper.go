@@ -4,9 +4,9 @@ import (
 	"cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
-	ics20types "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
-	ibcexported "github.com/cosmos/ibc-go/v6/modules/core/exported"
+	ics20types "github.com/cosmos/ibc-go/v7/modules/apps/transfer/types"
+	clienttypes "github.com/cosmos/ibc-go/v7/modules/core/02-client/types"
+	ibcexported "github.com/cosmos/ibc-go/v7/modules/core/exported"
 	"github.com/umee-network/umee/v4/x/uibc"
 
 	ibcutil "github.com/umee-network/umee/v4/util/ibc"
@@ -23,8 +23,8 @@ func (kb Builder) SendPacket(ctx sdk.Context,
 	sourceChannel string,
 	timeoutHeight clienttypes.Height,
 	timeoutTimestamp uint64,
-	data []byte) (uint64, error) {
-
+	data []byte,
+) (uint64, error) {
 	k := kb.Keeper(&ctx)
 	params := k.GetParams()
 	if params.IbcStatus == uibc.IBCTransferStatus_IBC_TRANSFER_STATUS_TRANSFERS_PAUSED {

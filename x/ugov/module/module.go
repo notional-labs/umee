@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
+	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
@@ -12,7 +13,6 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
-	abci "github.com/tendermint/tendermint/abci/types"
 
 	"github.com/umee-network/umee/v4/util"
 	// "github.com/umee-network/umee/v4/x/ugov/client/cli"
@@ -115,11 +115,6 @@ func (AppModule) ConsensusVersion() uint64 {
 	return 1
 }
 
-// LegacyQuerierHandler implements module.AppModule
-func (AppModule) LegacyQuerierHandler(*codec.LegacyAmino) sdk.Querier {
-	return nil
-}
-
 // QuerierRoute implements module.AppModule
 func (AppModule) QuerierRoute() string { return "" }
 
@@ -130,11 +125,6 @@ func (AppModule) RegisterInvariants(sdk.InvariantRegistry) {}
 func (am AppModule) RegisterServices(cfg module.Configurator) {
 	ugov.RegisterMsgServer(cfg.MsgServer(), keeper.NewMsgServer(am.kb))
 	ugov.RegisterQueryServer(cfg.QueryServer(), keeper.NewQuerier(am.kb))
-}
-
-// Route implements module.AppModule
-func (AppModule) Route() sdk.Route {
-	return sdk.Route{}
 }
 
 // BeginBlock executes all ABCI BeginBlock logic respective to the x/uibc module.

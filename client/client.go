@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 
-	sdkparams "github.com/cosmos/cosmos-sdk/simapp/params"
+	sdkparams "cosmossdk.io/simapp/params"
 	"github.com/umee-network/umee/v4/sdkclient"
 )
 

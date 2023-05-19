@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	sdkparams "github.com/cosmos/cosmos-sdk/simapp/params"
+	sdkparams "cosmossdk.io/simapp/params"
+	rpcclient "github.com/cometbft/cometbft/rpc/client"
 	"github.com/rs/zerolog"
-	rpcclient "github.com/tendermint/tendermint/rpc/client"
 	"github.com/umee-network/umee/v4/sdkclient/query"
 	"github.com/umee-network/umee/v4/sdkclient/tx"
 )

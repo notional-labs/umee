@@ -5,9 +5,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/cometbft/cometbft/crypto"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	ibctransfertypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
-	"github.com/tendermint/tendermint/crypto"
+	ibctransfertypes "github.com/cosmos/ibc-go/v7/modules/apps/transfer/types"
 	"gotest.tools/v3/assert"
 )
 
